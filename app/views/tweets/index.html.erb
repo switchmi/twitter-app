@@ -1,7 +1,38 @@
-<h1>Welcome <%= current_user.full_name %>!</h1>
   <div class="container">
-    
+    <div class="d-flex justify-content-end">
+      <h1 class="nav-message" >Welcome <%= current_user.full_name.capitalize %>!</h1>
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "ml-auto" %>
+    </div>
+    <div class="container">
+      <%= simple_form_for @tweet, url: tweets_path, method: :post do |f| %>
+      <%= f.input :text, label: 'Write a tweet!' %>
+      <div class="d-flex">
+        <%= f.button :submit, 'Tweet it!', class: 'btn btn-primary ml-auto'%>
+      </div>
+      <% end %>
+    </div>
+    <hr />
+    <div class="tweet-body">
+      <div class="
+      <% if @tweets.count != 0 %>
+        hide-me
+      <% end %>
+      " >
+        <h1 class="no-tweets">You have no tweets at the moment.</h1>
+      </div>
+      <% @tweets.each do |tweet| %>
+      <div class="tweet-box col-6">
+        <div class="tweet-header row justify-content-left">
+          <%= image_tag('default_profile', class: "profile-pic") %>
+          <p><%= tweet.user.full_name %></p>
+          <p><%= tweet.created_at %></p>
+          <%= link_to image_tag("delete-button", :title => '', :border => 0, :alt => '', :class => 'close-icon'), tweet_path(tweet), method: :delete, class: 'ml-auto' %>
+        </div>
+        <div class="tweet-content d-flex justify-content-center">
+          <h2 class="align-self-center"><%= tweet.text %></h2>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
   </div>
-
-
-<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
