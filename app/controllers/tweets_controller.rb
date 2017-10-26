@@ -1,6 +1,4 @@
-class TweetsController < ApplicationController
-
-  before_action :authenticate_user!
+class TweetsController < BaseController
 
   def index
   end
