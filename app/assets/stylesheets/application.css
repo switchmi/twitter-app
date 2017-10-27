@@ -25,4 +25,5 @@ div {
   margin-top: 200px;
   background-color: #1DA1F2;
   border-radius: 25px;
+  border: 1px solid black;
 }
