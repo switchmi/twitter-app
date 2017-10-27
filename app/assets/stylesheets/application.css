@@ -16,3 +16,13 @@
 body {
   background-color: #4BBF6B;
 }
+
+div {
+  /*border: 1px dotted black;*/
+}
+
+.login-box {
+  margin-top: 200px;
+  background-color: #1DA1F2;
+  border-radius: 25px;
+}
