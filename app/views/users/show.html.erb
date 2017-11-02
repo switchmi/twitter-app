@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="d-flex flex-column">
+    <h1 class="profile-name" ><%= @user.full_name.capitalize %></h1>
+    <h2><%= @user.email %></h2>
+  </div>
+  <hr />
+  <div class="tweet-body">
+    <div class="
+    <% if @tweets.count != 0 %>
+      hide-me
+    <% end %>
+    " >
+      <h1 class="no-tweets"><%= @user.full_name %> has no tweets at the moment.</h1>
+    </div>
+    <% @tweets.order('created_at DESC').each do |tweet| %>
+    <div class="tweet-box col-6">
+      <div class="tweet-header row justify-content-left">
+        <%= image_tag('default_profile', class: "profile-pic") %>
+        <p class="username">
+          <%= link_to tweet.user.full_name, url: user_path(tweet), method: :get %>
+        </p>
+        <p><%= tweet.created_at.localtime.strftime("%l:%M%P %d/%m/%y") %></p>
+      </div>
+      <div class="tweet-content d-flex justify-content-center">
+        <h2 class="align-self-center"><%= tweet.text %></h2>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+</div>

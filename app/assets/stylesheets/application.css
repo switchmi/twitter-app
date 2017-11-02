@@ -27,3 +27,8 @@ div {
   border-radius: 25px;
   border: 1px solid black;
 }
+
+.users-container {
+  background-color: #d0cfec;
+  border-radius: 25px;
+}

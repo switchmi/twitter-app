@@ -2,14 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 div {
-  // border: 1px dotted black;
+  border: 1px dotted black;
 }
 a {
 
   // border: 1px dotted black;
 }
 
-.nav-message {
+.nav-links {
+  font-family: 'Cantarell', sans-serif;
+}
+
+.profile-name {
   font-family: 'Bangers', cursive;
 }
 
@@ -42,11 +46,23 @@ a {
         font-weight: bold;
         padding-left: 10px;
       }
+      .username {
+        color: black;
+        font-style: italic;
+        font-weight: 600;
+      }
       a {
+        border: 1px dotted black;
         padding-right: 10px;
+        color: black;
       }
       .close-icon {
         width: 40px;
+      }
+
+      .edit-icon {
+        padding-left: 5px;
+        width: 20px;
       }
 
     }
