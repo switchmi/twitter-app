@@ -5,15 +5,22 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version : 2.4.1
 
-* System dependencies
+* System dependencies :
+  1) device
+  2) Simple Form
+  3) RSpec-rails
+  4) Shoulda Matchers
+  5) FactoryBot
 
 * Configuration
 
-* Database creation
+* Database creation:
+  rake db:create
 
 * Database initialization
+  rake db:migrate
 
 * How to run the test suite
 
