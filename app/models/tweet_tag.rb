@@ -1,4 +1,4 @@
 class TweetTag < ApplicationRecord
-  has_many :users
-  has_many :tags
+  belongs_to :tweet
+  belongs_to :hashtag
 end
