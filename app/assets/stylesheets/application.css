@@ -31,4 +31,8 @@ div {
 .users-container {
   background-color: #d0cfec;
   border-radius: 25px;
+  height: 700px;
+  margin: 5px;
+  overflow-x: scroll;
+  width: auto;
 }

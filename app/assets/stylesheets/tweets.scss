@@ -11,6 +11,9 @@ a {
 
 .nav-links {
   font-family: 'Cantarell', sans-serif;
+  p {
+    padding-left: 5px;
+  }
 }
 
 .profile-name {
@@ -27,21 +30,25 @@ a {
 
 .tweet-body{
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   flex-direction: column;
   align-items: center;
+  overflow-y: scroll;
+  height: 700px;
   .tweet-box {
     border: 1px solid black;
-    height: 400px;
+    // height: 200px;
     border-radius: 25px;
     background-color: #1DA1F2;
     margin: 5px;
+    width: 100%;
     .tweet-header {
       font-family: 'Cantarell', sans-serif;
-      height: auto;
+      width: 100%;
       padding-left: 10px;
       padding-top: 10px;
       padding-bottom: 10px;
+      margin-left: 5px;
       p {
         font-weight: bold;
         padding-left: 10px;

@@ -1,0 +1,7 @@
+<p><%= flash[:error] %></p>
+<%= simple_form_for @tweet, url: tweets_path, method: :post do |f| %>
+<%= f.input :text, label: 'Write a tweet!' %>
+<div class="d-flex">
+  <%= f.button :submit, 'Tweet it!', class: 'btn btn-primary ml-auto'%>
+</div>
+<% end %>

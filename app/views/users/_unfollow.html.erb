@@ -1,0 +1,4 @@
+<%= simple_form_for @user, url: following_path(@user), method: :delete, remote: true do |f| %>
+  <div><%= f.hidden_field :id, value: @user.id %></div>
+  <%= f.submit "Unfollow!", class: "btn btn-primary" %>
+<% end %>

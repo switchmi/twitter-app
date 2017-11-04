@@ -1,0 +1,8 @@
+if ('<% @tweet.id %>'){
+
+  $('#tweet_form').html('<%= j render partial: 'tweet_form' %>');
+  $('#tweet_body').html('<%= j render partial: 'tweet_body' %>');
+}
+else {
+  $('#tweet_form').html('<%= j render partial: 'tweet_form' %>');
+}

@@ -10,10 +10,20 @@ class TweetsController < BaseController
   def create
     @tweets = current_user.tweets.all
     @tweet = current_user.tweets.new(get_params)
+    @users = User.all
     if @tweet.save
-      redirect_to tweets_path
+      flash[:error] = ''
+      respond_to do |format|
+        format.html {redirect_to tweets_path}
+        format.js
+      end
     else
-      render :index
+      @tweet = current_user.tweets.new
+      flash[:error] = 'Text cannot be blank!'
+      respond_to do |format|
+        format.html {render :index}
+        format.js
+      end
     end
   end
 
@@ -35,9 +45,13 @@ class TweetsController < BaseController
   end
 
   def destroy
+    @tweets = current_user.tweets.all
     @tweet = current_user.tweets.find(params[:id])
     @tweet.destroy
-    redirect_to tweets_path
+    respond_to do |format|
+      format.js
+      format.html { redirect_to tweets_path }
+    end
   end
 
   private

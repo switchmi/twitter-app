@@ -2,30 +2,56 @@
   <div class="d-flex flex-column">
     <h1 class="profile-name" ><%= @user.full_name.capitalize %></h1>
     <h2><%= @user.email %></h2>
+    <h2 id="followers-count"><%= @user.followers.count %>&nbspFollowers</h2>
+    <div id="follow_form">
+      <% if current_user.id != @user.id %>
+        <% if current_user.following?(@user) %>
+          <%= render 'unfollow' %>
+        <% else %>
+          <%= render 'follow' %>
+        <% end %>
+      <% end %>
+  </div>
   </div>
   <hr />
-  <div class="tweet-body">
-    <div class="
-    <% if @tweets.count != 0 %>
-      hide-me
-    <% end %>
-    " >
-      <h1 class="no-tweets"><%= @user.full_name %> has no tweets at the moment.</h1>
+  <div class="container d-flex">
+    <div class="users-container col-3">
+      <h1>Users</h1>
+      <ul>
+        <% @users.each do |user| %>
+          <li> <%= link_to user.full_name.capitalize, user_path(user.id) %></li>
+        <% end %>
+      </ul>
     </div>
-    <% @tweets.order('created_at DESC').each do |tweet| %>
-    <div class="tweet-box col-6">
-      <div class="tweet-header row justify-content-left">
-        <%= image_tag('default_profile', class: "profile-pic") %>
-        <p class="username">
-          <%= link_to tweet.user.full_name, url: user_path(tweet), method: :get %>
-        </p>
-        <p><%= tweet.created_at.localtime.strftime("%l:%M%P %d/%m/%y") %></p>
+    <div class="tweet-body col-6">
+      <div class="
+      <% if @tweets.count != 0 %>
+        hide-me
+      <% end %>
+      " >
+        <h1 class="no-tweets">
+          <% if current_user == @user %>
+            <span>You have</span>
+          <% else %>
+            <%= @user.full_name %> has
+          <% end %>
+           no tweets at the moment.
+         </h1>
       </div>
-      <div class="tweet-content d-flex justify-content-center">
-        <h2 class="align-self-center"><%= tweet.text %></h2>
+      <% @tweets.order('created_at DESC').each do |tweet| %>
+      <div class="tweet-box">
+        <div class="tweet-header row justify-content-left">
+          <%= image_tag('default_profile', class: "profile-pic") %>
+          <p class="username">
+            <%= link_to tweet.user.full_name, url: user_path(tweet), method: :get %>
+          </p>
+          <p><%= tweet.created_at.localtime.strftime("%l:%M%P %d/%m/%y") %></p>
+        </div>
+        <div class="tweet-content d-flex justify-content-center">
+          <h2 class="align-self-center"><%= tweet.text %></h2>
+        </div>
       </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
-
 </div>
