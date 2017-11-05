@@ -1,18 +1,17 @@
 class TweetsController < BaseController
 
   def index
-    @tweets = current_user.tweets.all
+    @user_tweets = current_user.tweets.all
     @followees = current_user.followees.all
-    @all_tweets = []
+    @tweets = []
+    @user_tweets.each do |tweet|
+      @tweets.push(tweet)
+    end
     @followees.each do |followee|
       followee.tweets.each do |tweet|
-        @all_tweets.push(tweet)
+        @tweets.push(tweet)
       end
     end
-    @tweets.each do |tweet|
-      @all_tweets.push(tweet)
-    end
-    @tweets = @all_tweets
     @tweet = current_user.tweets.new
     @users = User.all
     @user = current_user
@@ -59,6 +58,7 @@ class TweetsController < BaseController
   end
 
   def destroy
+    @user = current_user
     @tweets = current_user.tweets.all
     @tweet = current_user.tweets.find(params[:id])
     @tweet.destroy

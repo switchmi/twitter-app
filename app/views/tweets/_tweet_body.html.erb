@@ -12,13 +12,13 @@
       <% end %>
       no tweets at the moment.</h1>
   </div>
-  <% @tweets.sort {|tweet| tweet.created_at}.each do |tweet| %>
+  <% @tweets.sort{|x,y| y.created_at <=> x.created_at}.each do |tweet| %>
   <div class="tweet-box ">
     <div class="tweet-header row justify-content-left">
       <%= image_tag('default_profile', class: "profile-pic") unless tweet.user.avatar? %>
       <%= image_tag(tweet.user.avatar.url, class: "profile-pic") if tweet.user.avatar? %>
       <p class="username">
-        <%= link_to tweet.user.full_name.capitalize, url: user_path(tweet), method: :get %>
+        <%= link_to tweet.user.full_name.capitalize.split(" ").first, url: user_path(tweet), method: :get %>
       </p>
       <p><%= tweet.created_at.localtime.strftime("%l:%M%P %d/%m/%y") %></p>
       <%= link_to image_tag("edit", :title => '', :border => 0, :alt => '', :class => 'edit-icon'), edit_tweet_path(tweet), method: :get if tweet.user == current_user %>
