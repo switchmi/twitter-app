@@ -1,5 +1,7 @@
-<h1>Update User</h1>
-<%= simple_form_for @user, url: user_path(@user), method: :patch do |f| %>
-  <%= f.input :avatar, as: :file, label: 'Avatar Upload' %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+  <h1>Update User Profile Pic</h1>
+  <%= simple_form_for @user, url: user_path(@user), method: :patch do |f| %>
+    <%= f.input :avatar, as: :file, label: 'Upload your avatar..' %>
+    <%= f.button :submit, 'Update!' %>
+  <% end %>
+</div>
