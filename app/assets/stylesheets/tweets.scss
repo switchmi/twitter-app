@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 div {
-  border: 1px dotted black;
+  // border: 1px dotted black;
 }
 a {
 
@@ -34,7 +34,7 @@ a {
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
-  height: 700px;
+  height: 550px;
   .tweet-box {
     border: 1px solid black;
     // height: 200px;
@@ -59,7 +59,7 @@ a {
         font-weight: 600;
       }
       a {
-        border: 1px dotted black;
+        // border: 1px dotted black;
         padding-right: 10px;
         color: black;
       }
@@ -87,9 +87,19 @@ a {
 
 
 .profile-pic {
+  width: 100px;
   border-radius: 50%;
+}
+
+.profile-text {
+  margin-left: 10px;
 }
 
 .tag_delete {
     width: 15px;
+}
+
+.avatar-profile {
+  width: 200px;
+  border-radius: 25px;
 }

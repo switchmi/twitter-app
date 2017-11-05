@@ -2,8 +2,20 @@ class TweetsController < BaseController
 
   def index
     @tweets = current_user.tweets.all
+    @followees = current_user.followees.all
+    @all_tweets = []
+    @followees.each do |followee|
+      followee.tweets.each do |tweet|
+        @all_tweets.push(tweet)
+      end
+    end
+    @tweets.each do |tweet|
+      @all_tweets.push(tweet)
+    end
+    @tweets = @all_tweets
     @tweet = current_user.tweets.new
     @users = User.all
+    @user = current_user
 
   end
 
