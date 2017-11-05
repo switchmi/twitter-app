@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'tweets#index'
 
-  resources :tweets
+  resources :tweets do
+    resources :hashtags, only: [:create, :destroy]
+  end
   resources :users
   resources :followings, only: [:create, :destroy]
+
 end

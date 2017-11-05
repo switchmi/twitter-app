@@ -17,8 +17,13 @@
       <%= link_to image_tag("edit", :title => '', :border => 0, :alt => '', :class => 'edit-icon'), edit_tweet_path(tweet), method: :get %>
       <%= link_to image_tag("delete-button", :title => '', :border => 0, :alt => '', :class => 'close-icon'), tweet_path(tweet), method: :delete, remote: true, class: 'ml-auto' %>
     </div>
-    <div class="tweet-content d-flex justify-content-center">
+    <div class="tweet-content">
       <h2 class="align-self-center"><%= tweet.text %></h2>
+      <div class="row align-self-center">
+        <% tweet.hashtags.each do |hashtag| %>
+          <span>#<%= hashtag.name.downcase %>&nbsp</span>
+        <% end %>
+      </div>
     </div>
   </div>
   <% end %>

@@ -6,3 +6,17 @@
   </div>
   <% end %>
 </div>
+<div class="container">
+  <h1>Add tags</h1>
+  <%= simple_form_for @tag, url: tweet_hashtags_path(@tweet), method: :post do |f| %>
+  <%= f.input :name, label: 'Add a tag' %>
+  <%= hidden_field_tag :user_id, current_user.id %>
+  <%= f.button :submit, 'Tag it!' %>
+  <% end %>
+  <hr />
+  <h1>Tags</h1>
+  <ul id="tags_body">
+    <%= render partial: 'tags_body' %>
+  </ul>
+  <hr />
+</div>

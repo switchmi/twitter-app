@@ -29,6 +29,8 @@ class TweetsController < BaseController
 
   def edit
     @tweet = current_user.tweets.find(params[:id])
+    @tag = @tweet.hashtags.new
+    @tags = @tweet.hashtags.all
   end
 
   def _edit

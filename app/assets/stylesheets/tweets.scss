@@ -63,13 +63,12 @@ a {
         padding-right: 10px;
         color: black;
       }
-      .close-icon {
-        width: 40px;
-      }
-
       .edit-icon {
         padding-left: 5px;
         width: 20px;
+      }
+      .close-icon {
+        width: 40px;
       }
 
     }
@@ -78,6 +77,10 @@ a {
       height: 200px;
       font-family: 'Contrail One', cursive;
       padding-bottom: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
@@ -85,4 +88,8 @@ a {
 
 .profile-pic {
   border-radius: 50%;
+}
+
+.tag_delete {
+    width: 15px;
 }

@@ -1,0 +1,6 @@
+<% @tags.each do |tag| %>
+  <li>
+    #<%= tag.name.downcase %>
+    <%= link_to image_tag("delete-button", :title => '', :border => 0, :alt => '', :class => 'tag_delete'), tweet_hashtag_path(@tweet, tag), method: :delete, remote: true, class: 'ml-auto' %>
+  </li>
+<% end %>
